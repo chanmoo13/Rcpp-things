@@ -20,7 +20,7 @@ tmat
 #### R built-in function "t" and        ####
 #### R user-made function "transposeR"  ####
 
-transposeR <- function(x){  ### User-made transpose function ( same algorithm with "transposeC" )
+transposeR <- function(x){  ### User-made transpose function ( same algorithm with "transposeC" ) ###
   n<-nrow(x)
   m<-ncol(x)
   tx<-matrix(nrow=m,ncol=n)
