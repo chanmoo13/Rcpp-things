@@ -173,3 +173,37 @@ return mat;
 fun <- cxxfunction(signature(mx = "numeric"), src, plugin = "Rcpp")
 orig <- matrix(1:9,3,3)
 fun(orig)
+
+
+
+
+
+#### Other vector class ####
+
+
+########## Listing 3.12 ##########
+fun3_12 <- cxxfunction(signature(), plugin = "Rcpp",
+                       body = '
+                       Rcpp::LogicalVector v(6);
+                       v[0] = v[1] = false;
+                       v[1] = true;
+                       //v[2] is not assigned
+                       v[3] = R_NaN;
+                       v[4] = R_PosInf;
+                       v[5] = NA_REAL;
+                       return v;
+                       ')
+fun3_12()
+identical(fun3_12(), c(FALSE, TRUE, FALSE, rep(NA,3))) ##v[2] is FALSE
+
+
+########## Listing 3.13 ##########
+fun3_13 <- cxxfunction(signature(), plugin="Rcpp",
+                       body = '
+                       Rcpp::CharacterVector v(3);
+                       v[0] = "The quick brown";
+                       v[1] = "fox";
+                       v[2] = R_NaString;
+                       return v;'
+)
+fun3_13()
