@@ -6,8 +6,8 @@ library(rbenchmark)
 
 sourceCpp("transposeRcpp.cpp")
 
-mat<-rep(c(1,2,3,4,5,6,7,8,9,10,11,12),100)
-dim(mat)<-c(30,40)
+mat<-rep(c(1,2,3,4,5,6,7,8,9,10,11,12),1000*1000)
+dim(mat)<-c(3000,4000)
 mat
 
 tmat<-transposeC(mat)
@@ -33,6 +33,6 @@ transposeR <- function(x){  ### User-made transpose function ( same algorithm wi
 }
 
 benchmark(transposeC(mat),t(mat), transposeR(mat),
-          columns=c("test", "replications", "elapsed", "relative"), order="relative", replications = 10000)
+          columns=c("test", "replications", "elapsed", "relative"), order="relative", replications = 100)
 
 
