@@ -41,7 +41,7 @@ fun4_3()
 
 
 
-#### Named Class ####
+#### DataFrame Class ####
 
 
 ########## Listing 4.6 ##########
@@ -58,7 +58,4 @@ return DataFrame::create(_["a"] = v, _["b"] = s);
 '
 fun4_6 <- cxxfunction(signature(), src, plugin = "Rcpp")
 fun4_6()
-
-
-########## Listing 4.6 ##########
 

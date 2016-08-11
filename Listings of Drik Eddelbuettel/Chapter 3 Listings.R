@@ -49,7 +49,7 @@ prod(1:10)
 
 
 
-sourceCpp("ls3-2.cpp") ### using "sourceCpp" function and "// [[Rcpp::export]]"
+sourceCpp("Listing_3_2.cpp") ### using "sourceCpp" function and "// [[Rcpp::export]]"
 
 fun3_2_rcpp(1:10)
 
@@ -126,7 +126,7 @@ outvec[i] = log(invec[i]);
 return outvec;
 '
 
-fun <- cxxfunction(signature(vx = "numeric"), src, plugin = "Rcpp")
+fun3_7 <- cxxfunction(signature(vx = "numeric"), src, plugin = "Rcpp")
 x<-seq(1.0,3.0,by=1)
 
 x
@@ -144,9 +144,9 @@ outvec[i] = log(invec[i]) ;
 return outvec;
 '
 
-fun <- cxxfunction(signature(vx = "numeric"), src, plugin = "Rcpp")
+fun3_8 <- cxxfunction(signature(vx = "numeric"), src, plugin = "Rcpp")
 x <- seq(1.0, 3.0, by = 1)
-cbind(x, fun(x))
+cbind(x, fun3_8(x))
 
 
 ########## Listing 3.9 ##########
@@ -157,9 +157,9 @@ Rcpp::NumericVector outvec = log(invec);
 return outvec;
 '
 
-fun<-cxxfunction(signature(vx = "numeric"), src, plugin = "Rcpp")
+fun3_9<-cxxfunction(signature(vx = "numeric"), src, plugin = "Rcpp")
 x <- seq(1.0, 3.0, by = 1)
-cbind(x,fun(x))
+cbind(x,fun3_9(x))
 
 
 ########## Listing 3.11 ##########
@@ -170,12 +170,12 @@ std::transform(mat.begin(), mat.end(), mat.begin(), ::sqrt);
 return mat;
 '
 
-fun <- cxxfunction(signature(mx = "numeric"), src, plugin = "Rcpp")
+fun3_11 <- cxxfunction(signature(mx = "numeric"), src, plugin = "Rcpp")
 orig <- matrix(1:9,3,3)
-fun(orig)
+fun3_11(orig)
 
-
-
+sourceCpp("Listing_3_11.cpp")
+sqrtc(orig)
 
 
 #### Other vector class ####
